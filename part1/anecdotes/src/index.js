@@ -15,7 +15,7 @@ const App = (props) => {
   let randomNum = Math.floor(Math.random() * 6)
 
   const handleNext = () => {
-    if (randomNum === selected) {
+    while (randomNum === selected) {
       randomNum = Math.floor(Math.random() * 6)
     }
     console.log(randomNum)
