@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import Filter from './components/filter'
 import PersonForm from './components/personform'
 import Persons from './components/persons'
-import axios from 'axios'
 
 import phoneService from './services/comm'
 
@@ -92,8 +91,6 @@ const App = () => {
     setNewSearch(event.target.value)
   }
 
-  const totalSearches = persons.filter(person => person.name.toLowerCase() === newSearch.toLowerCase()).reduce((acc, person) => acc.concat(person), [])
-
   const Notification = ({message}) => {
     const messageStyle = {
       color: 'green',
@@ -120,7 +117,7 @@ const App = () => {
     <div>
       <h2>Phonebook</h2>
       <Notification message={message} />
-      <Filter handleSearch={handleSearch} totalSearches={totalSearches}/> 
+      <Filter handleSearch={handleSearch} persons={persons} newSearch={newSearch}/> 
       <h2>Add a New Contact</h2>
       <PersonForm newName={newName} newNumber={newNumber} handleSubmit={handleSubmit} handleName={handleName} handleNumber={handleNumber} />
       <h2>Numbers</h2>
