@@ -3,7 +3,12 @@ const baseUrl = '/persons'
 
 const getAll = () => {
     const request  = axios.get(baseUrl)
-    return request.then(response => response.data)
+    return request.then(response => {
+        console.log(response)
+        console.log(response.data)
+        // response.data for just frontend
+        return response.data
+    })
 }
 
 const create = (newAdd) => {
